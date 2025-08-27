@@ -43,7 +43,7 @@
           <div
             class="heart flex gap-2 bg-[#41FF6B1A] px-3 sm:px-5 py-2 rounded-[50px]"
           >
-            <h1>0</h1>
+            <h1 id="heart-count">0</h1>
             <img
               class="h-[24px] w-[24px] sm:h-[30px] sm:w-[30px]"
               src="assets/heart.png"
@@ -53,7 +53,7 @@
           <div
             class="coin flex gap-2 bg-[#41FF6B1A] px-3 sm:px-5 py-2 rounded-[50px]"
           >
-            <h1>100</h1>
+            <h1 id="coin-count">100</h1>
             <img
               class="h-[24px] w-[24px] sm:h-[30px] sm:w-[30px]"
               src="assets/coin.png"
@@ -69,23 +69,21 @@
       </div>
     </section>
 
-    <!-- banner section start (Full Width) -->
+    <!-- banner section start (-->
     <main class="bg-[#F5FFF6]">
-      <section class="banner mt-4 sm:mt-0 w-[100%]">
+      <section class="banner mt-4 w-[100%] h-[239px]">
         <div
-          class="w-full h-auto sm:h-[240px] bg-gradient-to-r from-[#013122] via-[#006747] to-[#013223] flex flex-col justify-center items-center px-4 text-center"
+          class="w-full h-auto bg-gradient-to-r from-[#013122] via-[#006747] to-[#013223] flex flex-col justify-center items-center px-4 text-center"
         >
           <img
-            class="h-[60px] w-[60px] sm:h-[92px] sm:w-[92px]"
+            class="h-[60px] w-[60px] mt-6"
             src="assets/logo-dark.png"
             alt=""
           />
-          <h1 class="font-bold text-2xl sm:text-[40px] text-white mt-2 sm:mt-4">
+          <h1 class="font-bold text-2xl text-white mt-2">
             Emergency Service Directory
           </h1>
-          <p
-            class="font-semibold text-white mt-2 text-sm sm:text-base max-w-[90%] sm:max-w-[70%]"
-          >
+          <p class="font-semibold text-white mt-2 mb-6">
             Government Emergency Services at Your Fingertip – A Project by
             Government of the People’s Republic of Bangladesh
           </p>
@@ -108,7 +106,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               National Emergency Number
@@ -127,6 +125,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="national"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -143,7 +142,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               Police Helpline Number
@@ -162,6 +161,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="police"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -178,7 +178,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">Fire Service Number</h1>
             <p class="text-[18px] text-[gray]">Fire Service</p>
@@ -195,6 +195,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="fire"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -211,7 +212,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">Ambulance Service</h1>
             <p class="text-[18px] text-[gray]">Ambulance</p>
@@ -228,6 +229,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="Ambulance"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -244,7 +246,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               Women & Child Helpline
@@ -263,6 +265,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="Women"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -279,7 +282,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               Anti-Corruption Helpline
@@ -298,6 +301,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="Anti-Corruption"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -314,7 +318,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               Electricity Helpline
@@ -333,7 +337,8 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
-                class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
+                id="Electricity"
+                class="call-btn btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
               </button>
@@ -349,7 +354,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">Brac Helpline</h1>
             <p class="text-[18px] text-[gray]">Brac</p>
@@ -366,6 +371,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="Brac-Helpline"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call
@@ -382,7 +388,7 @@
                 alt=""
               />
 
-              <i class="fa-regular fa-heart text-[gray]"></i>
+              <i class="heart-b fa-regular fa-heart text-[gray]"></i>
             </div>
             <h1 class="font-bold text-[24px] mt-[16px]">
               Bangladesh Railway Helpline
@@ -401,6 +407,7 @@
                 <i class="fa-regular fa-copy"></i>Copy
               </button>
               <button
+                id="Railway"
                 class="btn px-[46px] py-[10px] bg-[green] text-white rounded-[12px]"
               >
                 <i class="fa-solid fa-phone"> </i>Call

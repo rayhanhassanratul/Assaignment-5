@@ -1,5 +1,5 @@
 let callHistory = [];
-
+// heart section counting
 document.querySelectorAll(".heart-b").forEach((heart) => {
   heart.addEventListener("click", function (e) {
     e.preventDefault();
@@ -10,6 +10,20 @@ document.querySelectorAll(".heart-b").forEach((heart) => {
 
     currentValue = currentValue + 1;
     heartCount.innerText = currentValue;
+  });
+});
+
+// copy btn counting
+document.querySelectorAll(".copyBtn").forEach((copy) => {
+  copy.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const copyCount = document.getElementById("copy-count");
+
+    let currentValue = parseInt(copyCount.innerText);
+
+    currentValue = currentValue + 1;
+    copyCount.innerText = currentValue;
   });
 });
 

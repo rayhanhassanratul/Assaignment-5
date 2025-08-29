@@ -1,38 +1,67 @@
-qs-1 ------------------------------
-What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?  ------------------
-Ans : Using getElementById, you can access a specific element by its ID,
-while getElementsByClassName allows you to access all elements that share a specific class name,
-and With querySelector, you can select any single element, and with querySelectorAll,
-you can access multiple elements of different classes or types. 
 
-qs-2 ----------------------------------------------
-How do you create and insert a new element into the DOM?------------------
-Ans : step 1 : creat a new elemnt > let newElement = document.createElement("p");
-      step 2 : add new content  > newElement.textContent = "Hello, I am new p";
-      step 3 : insert content > newElementv.textContent = "Hello, I am new p";
+## 1. What is the difference between `getElementById`, `getElementsByClassName`, and `querySelector` / `querySelectorAll`?
 
-qs-3--------------------
-What is Event Bubbling and how does it work?------------------------
-Ans :When I handle an event, it doesn’t go from top to bottom; instead,
-it spreads from the bottom to the top like bubbles—this is called event bubbling.
-It works like this: if I handle an event on a button, it first happens on the button,
-then goes to the button’s parent element, and then to its parent, and so on.
+- **`getElementById`**: Selects a single element by its unique `id`.  
+- **`getElementsByClassName`**: Returns a live HTMLCollection of all elements with the specified class name.  
+- **`querySelector`**: Returns the **first** element that matches a CSS selector.  
+- **`querySelectorAll`**: Returns a static NodeList of **all** elements that match a CSS selector.
 
-qs-4 ----------------
-What is Event Delegation in JavaScript? Why is it useful?------------------
-Ans : Instead of attaching listeners to many elements, a single listener is added
-to the parent element, and the event is checked via event.target to determine on
-which child it occurred.
+---
 
-For example, if I have 10 buttons, instead of writing separate code for each,
-I put all 10 under a parent and add one event listener to that parent. Later,
-using event.target, I can know which button was clicked.
+## 2. How do you create and insert a new element into the DOM?
 
-qs- 5--------------------------
-What is the difference between preventDefault() and stopPropagation() methods?----------------------
-Ans : preventDefault() cancels the default behavior of an event. For example,
-if you add an event listener to a button, clicking it may normally refresh
-the page repeatedly, but using preventDefault() stops that from happening.
+**Steps:**
 
-stopPropagation() stops an event right there,
-preventing it from bubbling or going up to parent elements.
+```javascript
+// Step 1: Create a new element
+let newElement = document.createElement("p");
+
+// Step 2: Add content to the element
+newElement.textContent = "Hello, I am a new paragraph.";
+
+// Step 3: Insert the element into the DOM
+document.body.appendChild(newElement);
+````
+
+---
+
+## 3. What is Event Bubbling and how does it work?
+
+**Event Bubbling** means that when an event is triggered on an element, it first runs on that element, and then propagates (bubbles) up to its parent elements, all the way up to the root (`document`).
+
+For example:
+If you click a button inside a `div`, the click event will first fire on the button, then on the `div`, then on its parent, and so on.
+
+---
+
+## 4. What is Event Delegation in JavaScript? Why is it useful?
+
+**Event Delegation** is a technique where instead of attaching individual event listeners to multiple child elements, a single event listener is added to their parent element. Inside the event handler, `event.target` is used to determine which child triggered the event.
+
+**Example:**
+
+```javascript
+document.getElementById("button-container").addEventListener("click", function(event) {
+  if (event.target.tagName === "BUTTON") {
+    console.log("Button clicked:", event.target.textContent);
+  }
+});
+```
+
+**Why it’s useful:**
+
+* Reduces memory usage (fewer listeners).
+* Dynamically handles elements that are added later.
+* Makes code cleaner and easier to manage.
+
+---
+
+## 5. What is the difference between `preventDefault()` and `stopPropagation()` methods?
+
+* **`preventDefault()`**: Prevents the default action of an event from occurring.
+  Example: Preventing a form from submitting or a link from navigating.
+
+* **`stopPropagation()`**: Stops the event from propagating (bubbling) to parent elements.
+  Example: A click event on a button won’t bubble up to its parent `div`.
+
+

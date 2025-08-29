@@ -1,7 +1,6 @@
 let callHistory = [];
 
-// Heart Section function start
-
+// Heart Section
 document.querySelectorAll(".heart-b").forEach((heart) => {
   heart.addEventListener("click", function (e) {
     e.preventDefault();
@@ -9,11 +8,18 @@ document.querySelectorAll(".heart-b").forEach((heart) => {
     const heartCount = document.getElementById("heart-count");
     let currentValue = parseInt(heartCount.innerText);
     heartCount.innerText = currentValue + 1;
+
+    Swal.fire({
+      icon: "success",
+      title: "❤️ Added to Favorites!",
+      text: "You liked this number!",
+      timer: 1500,
+      showConfirmButton: false,
+    });
   });
 });
 
-// Copy Button  start ...........
-
+// Copy Button
 document.querySelectorAll(".copyBtn").forEach((copyBtn) => {
   copyBtn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -21,18 +27,37 @@ document.querySelectorAll(".copyBtn").forEach((copyBtn) => {
     const card = this.closest(
       ".card-emergency, .card-Police, .card-Fire-Service, .card-ambulance, .card-women-child, .card-Anti-Corruption, .card-Electricity, .card-Brac, .card-Bangladesh-Railway"
     );
-    const numberToCopy = card.querySelector("p.text-2xl").innerText.trim();
 
-    navigator.clipboard.writeText(numberToCopy);
-    alert(`Number ${numberToCopy} copied`);
+    const numberToCopy =
+      card?.querySelector("p.text-2xl")?.innerText.trim() || "";
 
-    const copyCount = document.getElementById("copy-count");
-    let currentValue = parseInt(copyCount.innerText);
-    copyCount.innerText = currentValue + 1;
+    if (numberToCopy) {
+      navigator.clipboard.writeText(numberToCopy);
+
+      Swal.fire({
+        icon: "success",
+        title: "📋 Number Copied!",
+        text: `Number ${numberToCopy} copied successfully.`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      const copyCount = document.getElementById("copy-count");
+      let currentValue = parseInt(copyCount.innerText);
+      copyCount.innerText = currentValue + 1;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "❌ Copy Failed",
+        text: "Number not found.",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
   });
 });
 
-// Call Button  start .......
+// Call Button
 document.querySelectorAll(".callBtn").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -41,9 +66,12 @@ document.querySelectorAll(".callBtn").forEach((btn) => {
     let currentCoin = parseInt(coinCount.innerText);
 
     if (currentCoin < 20) {
-      alert(
-        "You don’t have enough coins. You need at least 20 coins to make a call"
-      );
+      Swal.fire({
+        icon: "error",
+        title: "⚠️ Not Enough Coins",
+        text: "You need at least 20 coins to make a call.",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
@@ -55,7 +83,14 @@ document.querySelectorAll(".callBtn").forEach((btn) => {
     const title = card.querySelector("h1.font-bold")?.innerText.trim() || "";
     const number = card.querySelector("p.text-2xl")?.innerText.trim() || "";
 
-    alert(`Calling ${title} ${number}`);
+    Swal.fire({
+      icon: "info",
+      title: `📞 Calling ${title}`,
+      text: `Dialing ${number}...`,
+      timer: 2000,
+      showConfirmButton: false,
+    });
+
     coinCount.innerText = currentCoin - 20;
 
     const historyItem = {
@@ -68,7 +103,7 @@ document.querySelectorAll(".callBtn").forEach((btn) => {
   });
 });
 
-//  history section start
+// History Section
 function updateCallHistory(history) {
   const historyContainer = document.getElementById("call-history");
 
@@ -99,9 +134,17 @@ function updateCallHistory(history) {
   historyContainer.prepend(div);
 }
 
-// Clear button
+// Clear Button
 document.getElementById("clear-history").addEventListener("click", () => {
   const historyContainer = document.getElementById("call-history");
   historyContainer.innerHTML = "";
   callHistory = [];
+
+  Swal.fire({
+    icon: "warning",
+    title: "🧹 History Cleared!",
+    text: "Your call history has been deleted.",
+    timer: 1500,
+    showConfirmButton: false,
+  });
 });

@@ -83,12 +83,16 @@ function updateCallHistory(history) {
   );
 
   div.innerHTML = `
-    <div>
-      <h1 class="font-semibold">${history.name}</h1>
-      <p>${history.number}</p>
-    </div>
-    <div>
-      <h1>${history.date}</h1>
+    <div class="w-full">
+      <div class="flex items-center justify-between p-4 mb-1 bg-gray-100 border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+        <div>
+          <h1 class="font-semibold text-gray-800">${history.name}</h1>
+          <p class="text-gray-600 text-sm">${history.number}</p>
+        </div>
+        <div>
+          <h1 class="text-gray-500 text-sm">${history.date}</h1>
+        </div>
+      </div>
     </div>
   `;
 

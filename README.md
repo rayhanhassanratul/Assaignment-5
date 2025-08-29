@@ -29,8 +29,6 @@ I put all 10 under a parent and add one event listener to that parent. Later,
 using event.target, I can know which button was clicked.
 
 qs- 5
-ChatGPT said:
-
 preventDefault() cancels the default behavior of an event. For example,
 if you add an event listener to a button, clicking it may normally refresh
 the page repeatedly, but using preventDefault() stops that from happening.

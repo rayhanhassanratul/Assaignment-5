@@ -1,4 +1,4 @@
-let callHistory = []; // --- for call history
+let callHistory = [];
 
 // Heart Section function start
 
@@ -12,7 +12,7 @@ document.querySelectorAll(".heart-b").forEach((heart) => {
   });
 });
 
-// Copy Button  Functionality start ...........
+// Copy Button  start ...........
 
 document.querySelectorAll(".copyBtn").forEach((copyBtn) => {
   copyBtn.addEventListener("click", function (e) {
@@ -32,7 +32,7 @@ document.querySelectorAll(".copyBtn").forEach((copyBtn) => {
   });
 });
 
-// Call Button Functionality start .......
+// Call Button  start .......
 document.querySelectorAll(".callBtn").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -64,12 +64,12 @@ document.querySelectorAll(".callBtn").forEach((btn) => {
       date: new Date().toLocaleTimeString(),
     };
     callHistory.push(historyItem);
-    updateCallHistoryUI(historyItem);
+    updateCallHistory(historyItem);
   });
 });
 
 //  history section start
-function updateCallHistoryUI(history) {
+function updateCallHistory(history) {
   const historyContainer = document.getElementById("call-history");
 
   const div = document.createElement("div");

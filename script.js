@@ -1,363 +1,103 @@
-let callHistory = [];
-// heart section counting
+let callHistory = []; // --- for call history
+
+// Heart Section function start
+
 document.querySelectorAll(".heart-b").forEach((heart) => {
   heart.addEventListener("click", function (e) {
     e.preventDefault();
 
     const heartCount = document.getElementById("heart-count");
-
     let currentValue = parseInt(heartCount.innerText);
-
-    currentValue = currentValue + 1;
-    heartCount.innerText = currentValue;
+    heartCount.innerText = currentValue + 1;
   });
 });
 
-// copy btn counting
-document.querySelectorAll(".copyBtn").forEach((copy) => {
-  copy.addEventListener("click", function (e) {
+// Copy Button  Functionality start ...........
+
+document.querySelectorAll(".copyBtn").forEach((copyBtn) => {
+  copyBtn.addEventListener("click", function (e) {
     e.preventDefault();
+
+    const card = this.closest(
+      ".card-emergency, .card-Police, .card-Fire-Service, .card-ambulance, .card-women-child, .card-Anti-Corruption, .card-Electricity, .card-Brac, .card-Bangladesh-Railway"
+    );
+    const numberToCopy = card.querySelector("p.text-2xl").innerText.trim();
+
+    navigator.clipboard.writeText(numberToCopy);
+    alert(`Number ${numberToCopy} copied`);
 
     const copyCount = document.getElementById("copy-count");
-
     let currentValue = parseInt(copyCount.innerText);
-
-    currentValue = currentValue + 1;
-    copyCount.innerText = currentValue;
+    copyCount.innerText = currentValue + 1;
   });
 });
 
-// call section  national emergency  service section
-
-document.getElementById("national").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling National Emergency Service 999");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
-
-  const history = {
-    name: "National Emergency Number",
-    number: "999",
-    date: new Date().toLocaleTimeString,
-  };
-
-  callHistory.push(history);
-
-  console.log(callHistory);
-});
-
-// copy section
-
-document
-  .getElementById("emergency-copy")
-  .addEventListener("click", function (e) {
+// Call Button Functionality start .......
+document.querySelectorAll(".callBtn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
     e.preventDefault();
-    navigator.clipboard.writeText("999");
-    alert("Number copied");
-  });
 
-// call section  police service section
-
-document.getElementById("police").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Police 999");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
-
-  const history = {
-    name: "Police Helpline",
-    number: "999",
-    date: new Date().toLocaleTimeString,
-  };
-
-  callHistory.push(history);
-
-  console.log(callHistory);
-});
-
-// copy section
-
-document
-  .getElementById("police-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("999");
-    alert("Number copied");
-  });
-
-// call section  fire service section
-
-document.getElementById("fire").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Fire Service 999");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
-
-  const history = {
-    name: "Fire Service Number",
-    number: "999",
-    date: new Date().toLocaleTimeString,
-  };
-
-  callHistory.push(history);
-
-  console.log(callHistory);
-});
-
-// copy section
-
-document.getElementById("fire-number").addEventListener("click", function (e) {
-  e.preventDefault();
-  navigator.clipboard.writeText("999");
-  alert("Number copied");
-});
-
-// call section  Ambulance service section
-
-document.getElementById("Ambulance").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Ambulance  Service 1994-999999");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
-
-  const history = {
-    name: "Ambulance  Service Helpline",
-    number: "1994-999999",
-    date: new Date().toLocaleTimeString,
-  };
-
-  callHistory.push(history);
-
-  console.log(callHistory);
-});
-
-// copy section
-
-document
-  .getElementById("ambulance-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("1994-999999");
-    alert("Number copied");
-  });
-
-// call section   Women & Child Helpline
-
-document.getElementById("Women").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Women & Child Helpline 109 ");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
-
-  const history = {
-    name: "Women & Child Helpline",
-    number: "109",
-    date: new Date().toLocaleTimeString,
-  };
-
-  callHistory.push(history);
-
-  console.log(callHistory);
-});
-
-// copy section
-
-document
-  .getElementById("women-help-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("109");
-    alert("Number copied");
-  });
-
-// call section   Anti-Corruption Helpline
-
-document
-  .getElementById("Anti-Corruption")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
     const coinCount = document.getElementById("coin-count");
     let currentCoin = parseInt(coinCount.innerText);
-    if (currentCoin >= 20) {
-      alert("Calling Anti-Corruption Helpline 106 ");
 
-      currentCoin = currentCoin - 20;
-      coinCount.innerText = currentCoin;
-    } else {
+    if (currentCoin < 20) {
       alert(
         "You don’t have enough coins. You need at least 20 coins to make a call"
       );
+      return;
     }
 
-    const history = {
-      name: "Anti-Corruption Helpline",
-      number: "106",
-      date: new Date().toLocaleTimeString,
-    };
-
-    callHistory.push(history);
-    console.log(callHistory);
-  });
-
-// copy section
-
-document
-  .getElementById("Anti-Corruption-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("106");
-    alert("Number copied");
-  });
-
-// call section   Electricity Outage Helpline
-
-document.getElementById("Electricity").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Electricity Outage Service 16216 ");
-
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
+    const card = this.closest(
+      ".card-emergency, .card-Police, .card-Fire-Service, .card-ambulance, .card-women-child, .card-Anti-Corruption, .card-Electricity, .card-Brac, .card-Bangladesh-Railway"
     );
-  }
+    if (!card) return;
 
-  const history = {
-    name: "Electricity Outage Service",
-    number: "16216",
-    date: new Date().toLocaleTimeString,
-  };
+    const title = card.querySelector("h1.font-bold")?.innerText.trim() || "";
+    const number = card.querySelector("p.text-2xl")?.innerText.trim() || "";
 
-  callHistory.push(history);
+    alert(`Calling ${title} ${number}`);
+    coinCount.innerText = currentCoin - 20;
 
-  console.log(callHistory);
-});
-
-document
-  .getElementById("electricity-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("16216");
-    alert("Number copied");
-  });
-
-// call section   Brac Helpline Helpline
-
-document
-  .getElementById("Brac-Helpline")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    const coinCount = document.getElementById("coin-count");
-    let currentCoin = parseInt(coinCount.innerText);
-    if (currentCoin >= 20) {
-      alert("Calling Brac Helpline Service 16445 ");
-
-      currentCoin = currentCoin - 20;
-      coinCount.innerText = currentCoin;
-    } else {
-      alert(
-        "You don’t have enough coins. You need at least 20 coins to make a call"
-      );
-    }
-
-    const history = {
-      name: "Brac Helpline Service",
-      number: "16445",
-      date: new Date().toLocaleTimeString,
+    const historyItem = {
+      name: title,
+      number: number,
+      date: new Date().toLocaleTimeString(),
     };
-
-    callHistory.push(history);
-
-    console.log(callHistory);
+    callHistory.push(historyItem);
+    updateCallHistoryUI(historyItem);
   });
-
-document.getElementById("brac-number").addEventListener("click", function (e) {
-  e.preventDefault();
-  navigator.clipboard.writeText("16445");
-  alert("Number copied");
 });
 
-// call section   railway  Helpline
+//  history section start
+function updateCallHistoryUI(history) {
+  const historyContainer = document.getElementById("call-history");
 
-document.getElementById("Railway").addEventListener("click", function (e) {
-  e.preventDefault();
-  const coinCount = document.getElementById("coin-count");
-  let currentCoin = parseInt(coinCount.innerText);
-  if (currentCoin >= 20) {
-    alert("Calling Bangladesh Railway Service 163 ");
+  const div = document.createElement("div");
+  div.classList.add(
+    "save",
+    "history",
+    "mt-[16px]",
+    "flex",
+    "justify-between",
+    "items-center"
+  );
 
-    currentCoin = currentCoin - 20;
-    coinCount.innerText = currentCoin;
-  } else {
-    alert(
-      "You don’t have enough coins. You need at least 20 coins to make a call"
-    );
-  }
+  div.innerHTML = `
+    <div>
+      <h1 class="font-semibold">${history.name}</h1>
+      <p>${history.number}</p>
+    </div>
+    <div>
+      <h1>${history.date}</h1>
+    </div>
+  `;
 
-  const history = {
-    name: "Bangladesh Railway Service",
-    number: "163",
-    date: new Date().toLocaleTimeString,
-  };
+  historyContainer.prepend(div);
+}
 
-  callHistory.push(history);
-
-  console.log(callHistory);
+// Clear button
+document.getElementById("clear-history").addEventListener("click", () => {
+  const historyContainer = document.getElementById("call-history");
+  historyContainer.innerHTML = "";
+  callHistory = [];
 });
-
-document
-  .getElementById("railway-number")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("163");
-    alert("Number copied");
-  });
